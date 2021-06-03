@@ -17,4 +17,5 @@ ubuntu@ubuntu2-VirtualBox:~/Ailunce-HS2-FW-V1.35$ ls
 ubuntu@ubuntu2-VirtualBox:~/Ailunce-HS2-FW-V1.35$
 ```
 
-As you can see in the above output a bin file is created.
+As you can see in the above output a bin file is created called `AilunceHS2-FW-1.3.5.dfu.target0.image0.bin` this can then be inspected by a tool built into
+linux called `strings` and the usage is as simple as using the tool name and inputing a file name. I will leave this down to you as their is alot of output.
