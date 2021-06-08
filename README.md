@@ -126,3 +126,19 @@ ubuntu@ubuntu2-VirtualBox:~/ghidra_9.2.3_PUBLIC$ ./ghidraRun
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/fixdupe.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findexport.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/exportoptions.JPG)
+
+
+Repacking the DFU file
+
+```
+ubuntu@ubuntu2-VirtualBox:~/reverse$ python3 dfuse_pack.py -b 0x08000000:AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin AilunceHS2-FW-V1.3.7.dfu.target-patched.dfu
+ubuntu@ubuntu2-VirtualBox:~/reverse$ ls
+'Ailunce HS2 FW-V1.3.7 changelog.txt'   AilunceHS2-FW-V1.3.7.dfu.target0.image0.bin           AilunceHS2-FW-V1.3.7.dfu.target-patched.dfu   dfuse_pack.py
+ AilunceHS2-FW-V1.3.7.dfu               AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin   Ailunce-HS2-FW-V1.37.zip
+ubuntu@ubuntu2-VirtualBox:~/reverse$ 
+
+
+```
+
+Then Flash to your radio like normal. Just remeber any changes you make could potentially mess up your radio and i do not take
+any responsibility for the actions you perform.
