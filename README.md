@@ -1,6 +1,7 @@
 # HS2-Reversing
 How i took apart the HS2 Firmware
 
+
 Download the firmware for the website this can be done with a linux program such as wget or you can do it with your web browser.
 
 ```
@@ -98,6 +99,14 @@ ubuntu@ubuntu2-VirtualBox:~/ghidra_9.2.3_PUBLIC$ ./ghidraRun
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/projectname.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/importBinary.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/SelectLang.JPG)
+
+From removing the cover of the radio it was possible to identify the processor and the type
+
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/chipset.jpg)
+
+Processor user manaul https://www.st.com/resource/en/datasheet/dm00071990.pdf
+
+With the following information it was possible to load the firmware into ghidra using the right instruction set.
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex-settings.JPG)
