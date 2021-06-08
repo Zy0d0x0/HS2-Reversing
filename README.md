@@ -28,8 +28,6 @@ Archive:  Ailunce-HS2-FW-V1.37.zip
 ubuntu@ubuntu2-VirtualBox:~/reverse$ ls
 'Ailunce HS2 FW-V1.3.7 changelog.txt'   AilunceHS2-FW-V1.3.7.dfu   Ailunce-HS2-FW-V1.37.zip
 ubuntu@ubuntu2-VirtualBox:~/reverse$ 
-
-
 ```
 
 When the firmware has been extracted it should be noted the firmware file is further compressed 
