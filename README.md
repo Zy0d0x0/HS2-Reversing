@@ -113,7 +113,16 @@ ubuntu@ubuntu2-VirtualBox:~/ghidra_9.2.3_PUBLIC$ ./ghidraRun
  A really good video on doing exactly this can be found here https://www.youtube.com/watch?v=q4CxE5P6RUE
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Search.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/searchAll.JPG)
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findCode.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/gotoCode.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/instructionpointer.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Useraccess.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Useraccess.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/patchInstructions.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/set02to03.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/duplevalues.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/fixdupe.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findexport.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/exportoptions.JPG)
