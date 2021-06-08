@@ -97,9 +97,15 @@ ubuntu@ubuntu2-VirtualBox:~/ghidra_9.2.3_PUBLIC$ ./ghidraRun
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cleanproject.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/newproject.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/projectname.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/importBinary.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/SelectLang.JPG)
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex-settings.JPG)
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex-settings.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/CheckResults-No.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findMemMap.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/flash_clone.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/ram.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/analysis.JPG)
+![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/options.JPG)
