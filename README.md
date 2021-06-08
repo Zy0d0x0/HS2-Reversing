@@ -139,6 +139,16 @@ what used when extracting the original dfu and called `AilunceHS2-FW-V1.3.7.dfu.
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/exportoptions.JPG)
 
 
+Before repacking the DFU file its worth using the tool md5sum it is also possible to see if your changes have taken place.
+```
+ubuntu@ubuntu2-VirtualBox:~/reverse$ md5sum AilunceHS2-FW-V1.3.7.dfu.target0.image0.bin
+dfeaf29113a03b1eb9d8fc08291cd90a  AilunceHS2-FW-V1.3.7.dfu.target0.image0.bin
+ubuntu@ubuntu2-VirtualBox:~/reverse$ md5sum AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin
+62c51b93772cba973aa5adb6b2fdc396  AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin
+ubuntu@ubuntu2-VirtualBox:~/reverse$ 
+
+```
+
 To repacking the DFU file its as simple as adding the inputfile name that we exported from the the reverse engineering tools
 with patched appeneded to the name and the memory locator point and then the output filename as shown in the bewlow output.
 
@@ -154,5 +164,10 @@ ubuntu@ubuntu2-VirtualBox:~/reverse$
 
 Then Flash to your radio like normal. Just remeber any changes you make could potentially mess up your radio and i do not take
 any responsibility for the actions you perform.
+
+
+```
+
+```
 
 The end result is how i made the following firmware files https://github.com/Zy0d0x0/HS2-Firmware
