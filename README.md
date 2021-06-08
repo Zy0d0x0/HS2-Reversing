@@ -145,3 +145,5 @@ ubuntu@ubuntu2-VirtualBox:~/reverse$
 
 Then Flash to your radio like normal. Just remeber any changes you make could potentially mess up your radio and i do not take
 any responsibility for the actions you perform.
+
+The end result is how i made the following firmware files https://github.com/Zy0d0x0/HS2-Firmware
