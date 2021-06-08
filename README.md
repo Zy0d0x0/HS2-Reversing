@@ -69,4 +69,30 @@ user access. When confirming the access worked i tried to manully brute force di
 that fit within the lenght of its policy. This is when the "user setup" acount was found by using "000000" as the pin number althought it was
 found this user access was nothing useful and with even less rights then the "agent setup" account. 
 
+Blog post: https://www.ailunce.com/blog/setting-item-of-your-Ailunce-HS2
+
+Exact wording from the blog post:
+
+```
+It's a hidden setting item. You can do as below if you want to set ITU region.
+
+if you haven't activated your HS2: turn on=>select "NO"=>enter 685911=>long press MENU=>SET=>ham area, via left and right key to select ITU=>long press MENU key to save and exit
+
+if you have activated your HS2: turn on=>long press MENU=>Cursor on the top option above, long press PA, enter 685911=>long press MENU key to save and exit=>reenter SET=>ham area, via left
+```
+
+
 This then made me want to further inspect the binary file and through expecericen i knew Ghidra would be the perfect tool for the job.
+https://ghidra-sre.org/
+
+Installing Ghidra can be found here http://www.ylmzcmlttn.com/2019/03/26/ghidra-installation-on-ubuntu-18-04-16-04-14-04/
+
+Once installed start it:
+
+```
+ubuntu@ubuntu2-VirtualBox:~/ghidra_9.2.3_PUBLIC$ ./
+docs/       Extensions/ Ghidra/     ghidraRun   GPL/        licenses/   server/     support/    
+ubuntu@ubuntu2-VirtualBox:~/ghidra_9.2.3_PUBLIC$ ./ghidraRun 
+```
+
+
