@@ -123,10 +123,15 @@ ubuntu@ubuntu2-VirtualBox:~/ghidra_9.2.3_PUBLIC$ ./ghidraRun
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/duplevalues.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/fixdupe.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findexport.JPG)
+
+Export the file type of Binary and set the export folder to the same folder name that
+what used when extracting the original dfu and called `AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin`
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/exportoptions.JPG)
 
 
-Repacking the DFU file
+To repacking the DFU file its as simple as adding the inputfile name that we exported from the the reverse engineering tools
+with patched appeneded to the name and the memory locator point and then the output filename as shown in the bewlow output.
 
 ```
 ubuntu@ubuntu2-VirtualBox:~/reverse$ python3 dfuse_pack.py -b 0x08000000:AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin AilunceHS2-FW-V1.3.7.dfu.target-patched.dfu
