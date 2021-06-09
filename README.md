@@ -1,4 +1,4 @@
-# HS2-Reversing
+# HS2 Bypass
 How i took apart the HS2 Firmware
 
 
@@ -233,7 +233,6 @@ dfeaf29113a03b1eb9d8fc08291cd90a  AilunceHS2-FW-V1.3.7.dfu.target0.image0.bin
 ubuntu@ubuntu2-VirtualBox:~/reverse$ md5sum AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin
 62c51b93772cba973aa5adb6b2fdc396  AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin
 ubuntu@ubuntu2-VirtualBox:~/reverse$ 
-
 ```
 
 To repacking the DFU file its as simple as adding the inputfile name that we exported from the the reverse engineering tools
@@ -245,14 +244,9 @@ ubuntu@ubuntu2-VirtualBox:~/reverse$ ls
 'Ailunce HS2 FW-V1.3.7 changelog.txt'   AilunceHS2-FW-V1.3.7.dfu.target0.image0.bin           AilunceHS2-FW-V1.3.7.dfu.target-patched.dfu   dfuse_pack.py
  AilunceHS2-FW-V1.3.7.dfu               AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin   Ailunce-HS2-FW-V1.37.zip
 ubuntu@ubuntu2-VirtualBox:~/reverse$ 
-
-
 ```
 
 Then Flash to your radio like normal. Just remeber any changes you make could potentially mess up your radio and i do not take
 any responsibility for the actions you perform.
-
-
-
 
 The final result are how the following firmware files are created: https://github.com/Zy0d0x0/HS2-Firmware
