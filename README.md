@@ -169,18 +169,22 @@ the global search function using the same names that were found when using the s
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/searchAll.JPG)
 
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findCode.JPG)
-
-
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/gotoCode.JPG)
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/instructionpointer.JPG)
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Useraccess.JPG)
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Useraccess.JPG)
+
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/patchInstructions.JPG)
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/set02to03.JPG)
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/duplevalues.JPG)
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/fixdupe.JPG)
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findexport.JPG)
 
 Export the file type of Binary and set the export folder to the same folder name that
