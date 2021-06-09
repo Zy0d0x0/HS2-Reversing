@@ -208,7 +208,11 @@ not fixed the access will result in still being the lowest level user.
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/duplevalues.JPG)
 
 To fix the duplication is exactly the same as when you changed the first varible. navigate to the
-user setup access and then change the `0x3` to `0x3`.
+user setup access and then change the `0x3` to `0x2`.
+
+This Should then make the "User setup" as level 2 setup instead of the level 3 and
+make the factory user a level 3 setup where we know the password is "000000".
+Thus the bypass taking place.
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/fixdupe.JPG)
 
