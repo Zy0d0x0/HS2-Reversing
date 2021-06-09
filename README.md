@@ -164,10 +164,16 @@ the global search function using the same names that were found when using the s
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Search.JPG)
 
+When the search has begun a new window will popup and start populating results. If you click on
+the first result when everything has finished you should notice the instruction pointers shown
+in the bewlow screeshot. 
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/gotoCode.JPG)
 
-
+By double clicking on the first of the green sector to the right of the instruction 
+pointers you will notice it will then take you to a new point in memenory. By scrolling
+throught the code on the right hand side its possible to see the three levels of user access
+and them being controlled by numbers. 
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/instructionpointer.JPG)
 
@@ -187,7 +193,10 @@ continue.
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/patchInstructions.JPG)
 
+
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/set02to03.JPG)
+
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/duplevalues.JPG)
 
