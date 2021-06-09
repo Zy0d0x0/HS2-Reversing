@@ -209,9 +209,11 @@ user setup access and then change the `0x3` to `0x3`.
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/fixdupe.JPG)
 
+Once complete you can then finally export the program from ghidra by navigating to File > `Export Programe`
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findexport.JPG)
 
-Export the file type of Binary and set the export folder to the same folder name that
+Then you will be prompted to export the file type of Binary and set the export folder to the same folder name that
 what used when extracting the original dfu and called `AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin`
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/exportoptions.JPG)
