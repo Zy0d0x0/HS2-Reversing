@@ -95,9 +95,17 @@ ubuntu@ubuntu2-VirtualBox:~/ghidra_9.2.3_PUBLIC$ ./ghidraRun
 ```
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cleanproject.JPG)
+Proceed by clicking File > New Project, This will then prompt for the type of project. In this write up this was done
+as a Non-Shared Project. Select the type and continue by clicking "Next"
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/newproject.JPG)
+
+Create a new project name and directory for the working directory.
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/projectname.JPG)
+
+Next we need to import the binary file that was privously extracted with the python script this can be done
+by going to File > Import file as shown in the below screenshot.
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/importBinary.JPG)
+You will see you are next prompted to set the type of language achitecture for the binary file that is being imported.
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/SelectLang.JPG)
 
 From removing the cover of the radio it was possible to identify the processor and the type
@@ -106,11 +114,25 @@ From removing the cover of the radio it was possible to identify the processor a
 
 Processor user manaul https://www.st.com/resource/en/datasheet/dm00071990.pdf
 
-With the following information it was possible to load the firmware into ghidra using the right instruction set.
+With the following information it was possible work out the Language for the chipset is Cortex and x86 architecture by selecting the right instruction set
+the software will be able to apply its helper plugins to try and show how the application may look deconstructed instead of having to learn Assembler language from 
+scratch. The below image shows searching for the cortext language settings when importing the binary to Ghidra
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex.JPG)
+
+Before applying the the type of language we then need to tell Ghidra where to look for the starting point of the data that will be imported
+from keeping notes when extracting the firmware you would of noticed the starting address: 0x08000000 this needs to be applied to the settings.
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex-settings.JPG)
+
+after allowing all the changes and the file has imported you will then be prompted with the following windows asking
+if you would like to perform analysis on the file for now click "No" as more changes need to be made before procceding.
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/CheckResults-No.JPG)
+
+as privoulsly mentioned we need to perform some more changes the start of the changes will be by
+navigating to the Memory manp Tool included withing 
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findMemMap.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/flash_clone.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/ram.JPG)
