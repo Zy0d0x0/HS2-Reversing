@@ -219,8 +219,6 @@ Then Flash to your radio like normal. Just remeber any changes you make could po
 any responsibility for the actions you perform.
 
 
-```
 
-```
 
-The end result is how i made the following firmware files https://github.com/Zy0d0x0/HS2-Firmware
+The final result are how the following firmware files are created: https://github.com/Zy0d0x0/HS2-Firmware
