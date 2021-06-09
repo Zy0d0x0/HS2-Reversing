@@ -94,8 +94,6 @@ docs/       Extensions/ Ghidra/     ghidraRun   GPL/        licenses/   server/ 
 ubuntu@ubuntu2-VirtualBox:~/ghidra_9.2.3_PUBLIC$ ./ghidraRun 
 ```
 
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cleanproject.JPG)
-
 Proceed by clicking File > New Project, This will then prompt for the type of project. In this write up this was done
 as a Non-Shared Project. Select the type and continue by clicking "Next"
 
