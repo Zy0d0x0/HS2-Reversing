@@ -2,7 +2,7 @@
 How i took apart the HS2 Firmware
 
 
-Download the firmware for the website this can be done with a linux program such as wget or you can do it with your web browser.
+Download the firmware from the website this can be done with a linux program such as wget or you can do it with your web browser.
 
 ```
 ubuntu@ubuntu2-VirtualBox:~/reverse$ wget https://www.ailunce.com/Assets/file/Ailunce-HS2-FW-V1.37.zip
