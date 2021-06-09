@@ -193,12 +193,19 @@ continue.
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/patchInstructions.JPG)
 
-
+In the below screenshot you can see when patching the instructions it allows you to edit the assembler language
+and by switching the number `0x2` to `0x3` it makes the code become `var4 == 3` where originally it was only 2.
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/set02to03.JPG)
 
+When the values have been patched you will then notice we have duplicate vaules of `var4 == 3` this would 
+create confusion within the application and this was found by trial and error if the duplication is 
+not fixed the access will result in still being the lowest level user.
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/duplevalues.JPG)
+
+To fix the duplication is exactly the same as when you changed the first varible. navigate to the
+user setup access and then change the `0x3` to `0x3`.
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/fixdupe.JPG)
 
