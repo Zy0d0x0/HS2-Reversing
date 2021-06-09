@@ -105,8 +105,11 @@ Create a new project name and directory for the working directory.
 
 Next we need to import the binary file that was privously extracted with the python script this can be done
 by going to File > Import file as shown in the below screenshot.
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/importBinary.JPG)
+
 You will see you are next prompted to set the type of language achitecture for the binary file that is being imported.
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/SelectLang.JPG)
 
 From removing the cover of the radio it was possible to identify the processor and the type
