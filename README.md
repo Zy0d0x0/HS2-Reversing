@@ -137,17 +137,42 @@ as privoulsly mentioned we need to perform some more changes the start of the ch
 navigating to the Memory manp Tool included withing 
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findMemMap.JPG)
+
+The proceed to created aa new memory allocation point by clicking the green cross button on the right hand 
+side and by looking at the memory allocation map inside the documentation for the memory to extract its self into.
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/flash_clone.JPG)
+
+Finally for memory allocation by again using the resources from the documentation for the processor it was
+found by setting the ram we could allocate instructions into virtul memory for later analysis. 
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/ram.JPG)
+
+Now all the memory allocaation sections have been created it is then possible to use the built in analysis tools
+by navingating and manully triggering.
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/analysis.JPG)
+
+When the analysis button has been pressed it will be noticed that the application has prompted for settings 
+to be selected and for now just select the all button and monitor the bottom right hand status bar. when the status
+has then stopped showing instructions it should be completed.
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/options.JPG)
 
  A really good video on doing exactly this can be found here https://www.youtube.com/watch?v=q4CxE5P6RUE
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Search.JPG)
+
+
+When everything has completed it is then possible to search the binary using
+the global search function using the same names that were found when using the strings application.
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/searchAll.JPG)
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findCode.JPG)
+
+
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/gotoCode.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/instructionpointer.JPG)
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Useraccess.JPG)
