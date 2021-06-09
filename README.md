@@ -173,7 +173,16 @@ the global search function using the same names that were found when using the s
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/instructionpointer.JPG)
 
+Its possible to see in the below screen shot the 3 levels of user access we were searching
+for in the strings application at the beggining of the process.
+
+* agent setup
+* factory setup
+* user setup
+
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Useraccess.JPG)
+
+
 
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/patchInstructions.JPG)
