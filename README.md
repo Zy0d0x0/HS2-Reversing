@@ -167,8 +167,6 @@ has then stopped showing instructions it should be completed.
 When everything has completed it is then possible to search the binary using
 the global search function using the same names that were found when using the strings application.
 
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/searchAll.JPG)
-
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/gotoCode.JPG)
 
