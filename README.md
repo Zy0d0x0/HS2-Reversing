@@ -1,6 +1,5 @@
 # HS2 Bypass
-How i took apart the HS2 Firmware
-
+This is still in progress but this is how i took apart the HS2 Firmware
 
 Download the firmware from the website this can be done with a linux program such as wget or you can do it with your web browser.
 
