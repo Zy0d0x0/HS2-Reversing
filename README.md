@@ -4,7 +4,7 @@
 
 This is still in progress but this is how i took apart the HS2 Firmware and changed the "user setup" to the "Factory setup".
 
-We start by downling the firmware from the HS2 website this can be done with a linux program such as wget or you can do it with your web browser.
+We start by downloading the firmware from the HS2 website this can be done with a linux program such as wget or you can do it with your web browser.
 
 ```
 ubuntu@ubuntu2-VirtualBox:~/reverse$ wget https://www.ailunce.com/Assets/file/Ailunce-HS2-FW-V1.37.zip
