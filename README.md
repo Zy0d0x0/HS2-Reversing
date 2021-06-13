@@ -4,7 +4,7 @@
 
 This is still in progress but this is how i took apart the HS2 Firmware and changed the "user setup" to the "Factory setup".
 
-We start by downloading the firmware from the HS2 website this can be done with a linux program such as wget or you can do it with your web browser.
+We start by downling the firmware from the HS2 website. This can be done with a linux program such as wget, or you can do it with your web browser:
 
 ```
 ubuntu@ubuntu2-VirtualBox:~/reverse$ wget https://www.ailunce.com/Assets/file/Ailunce-HS2-FW-V1.37.zip
@@ -21,7 +21,7 @@ Ailunce-HS2-FW-V1.37.zip                           100%[========================
 
 ubuntu@ubuntu2-VirtualBox:~/reverse$ 
 ```
-When the firmware has been downloaded the next step is to extract the zip file that its currently compressed into.
+When the firmware has been downloaded we extract the zip file that its currently compressed into.
 
 ```
 ubuntu@ubuntu2-VirtualBox:~/reverse$ unzip Ailunce-HS2-FW-V1.37.zip 
@@ -33,10 +33,11 @@ ubuntu@ubuntu2-VirtualBox:~/reverse$ ls
 ubuntu@ubuntu2-VirtualBox:~/reverse$ 
 ```
 
-When the firmware has been extracted it should be noted the firmware file is further compressed 
-in a DFU extention. this can be extracted by using the dfuse-pack.py python application attached
-to this git repo.
+When the firmware has been extracted we can see that the firmware file is further compressed 
+in a DFU extention. 
 
+This can be extracted, in turn, by using the dfuse-pack.py Python application attached
+to this git repo.
 
 ```
 ubuntu@ubuntu2-VirtualBox:~/reverse$ python3 dfuse_pack.py -d AilunceHS2-FW-V1.3.7.dfu
@@ -52,9 +53,9 @@ ubuntu@ubuntu2-VirtualBox:~/reverse$
 
 ```
 
-As you can see in the above output a bin file is created called `AilunceHS2-FW-1.3.5.dfu.target0.image0.bin` this can then be inspected by a tool built into
-linux called `strings` and the usage is as simple as using the tool name and inputing a file name. Lots of strings where found when searching the binary file
-so i then decided to source out a few intresting ones.
+As you can see in the above output, a bin file is created called `AilunceHS2-FW-1.3.5.dfu.target0.image0.bin`. This can then be inspected by a tool built into linux called `strings`. Lots of strings where found when searching the binary file so I decided to source out a few intresting ones.
+
+Using the `strings` tool is as simple as running the tool with the file name of the firmware. 
 
 ```
 ubuntu@ubuntu2-VirtualBox:~/reverse$ strings AilunceHS2-FW-V1.3.7.dfu.target0.image0.bin |grep setup
@@ -64,11 +65,8 @@ user setup
 ubuntu@ubuntu2-VirtualBox:~/reverse$ 
 
 ```
-In the above output it was possible to see their may be different levels of access, this was confirmwed by Ailuence had released a blog
-post disclosing the route to enter the hidden menu screen within the SET menu on the HS2. Within the blog post it further exposed the "agent setup" 
-user access. When confirming the access worked i tried to manully brute force different user accounts by typing in known default pin numbers 
-that fit within the lenght of its policy. This is when the "user setup" acount was found by using "000000" as the pin number althought it was
-found this user access was nothing useful and with even less rights then the "agent setup" account. 
+Based on the above output we can see there appear to be different levels of access, 
+This was confirmwed by Ailunce in their blog post below, where they disclose the route one needs to follow to enter the hidden menu screen within the SET menu on the HS2. The same blog post then goes on to further expose the "agent setup" user access. 
 
 Blog post: https://www.ailunce.com/blog/setting-item-of-your-Ailunce-HS2
 
@@ -81,14 +79,13 @@ if you haven't activated your HS2: turn on=>select "NO"=>enter 685911=>long pres
 
 if you have activated your HS2: turn on=>long press MENU=>Cursor on the top option above, long press PA, enter 685911=>long press MENU key to save and exit=>reenter SET=>ham area, via left
 ```
+After confirming the access works I tried to manually brute-force different user accounts by typing in known default pin numbers fitting the lenght of its policy. This is when the "user setup" acount was found by using "000000" as the pin number althought it was later found this user access was not useful as it had even less rights then the "agent setup" account. 
 
+This prompted me to further inspect the binary file. Through expecerice I knew [Ghidra](https://ghidra-sre.org/) would be the perfect tool for the job.
 
-This then made me want to further inspect the binary file and through expecericen i knew Ghidra would be the perfect tool for the job.
-https://ghidra-sre.org/
+Installing Ghidra can be found here: http://www.ylmzcmlttn.com/2019/03/26/ghidra-installation-on-ubuntu-18-04-16-04-14-04/
 
-Installing Ghidra can be found here http://www.ylmzcmlttn.com/2019/03/26/ghidra-installation-on-ubuntu-18-04-16-04-14-04/
-
-Once installed start it:
+Once installed we start it:
 
 ```
 ubuntu@ubuntu2-VirtualBox:~/ghidra_9.2.3_PUBLIC$ ./
@@ -96,94 +93,94 @@ docs/       Extensions/ Ghidra/     ghidraRun   GPL/        licenses/   server/ 
 ubuntu@ubuntu2-VirtualBox:~/ghidra_9.2.3_PUBLIC$ ./ghidraRun 
 ```
 
-Proceed by clicking File > New Project, This will then prompt for the type of project. In this write up this was done
-as a Non-Shared Project. Select the type and continue by clicking "Next"
+Then we proceed by clicking File > New Project. This will then prompt for the type of project. In this write up this was done
+as a Non-Shared Project. 
+
+We select the type and continue by clicking "Next":
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/newproject.JPG)
 
-Create a new project name and directory for the working directory.
+We then create a new project name and directory for the working directory:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/projectname.JPG)
 
-Next we need to import the binary file that was privously extracted with the python script this can be done
-by going to File > Import file as shown in the below screenshot.
+Next we need to import the binary file that was previously extracted with the Python script. This can be done
+by going to File > Import file as shown in the following screenshot:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/importBinary.JPG)
 
-You will see you are next prompted to set the type of language achitecture for the binary file that is being imported.
+We are then prompted to set the type of language achitecture for the binary file that is being imported:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/SelectLang.JPG)
 
-From removing the cover of the radio it was possible to identify the processor and the type
+By removing the cover of the radio it is possible to identify the processor and the type:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/chipset.jpg)
 
-Processor user manaul https://www.st.com/resource/en/datasheet/dm00071990.pdf
+[Processor user manual](https://www.st.com/resource/en/datasheet/dm00071990.pdf)
 
-With the following information it was possible work out the Language for the chipset is Cortex and x86 architecture by selecting the right instruction set
-the software will be able to apply its helper plugins to try and show how the application may look deconstructed instead of having to learn Assembler language from 
-scratch. The below image shows searching for the cortext language settings when importing the binary to Ghidra
+With the following information it is possible to work out the Language for the chipset is Cortex and architecture is x86. By then selecting the right instruction set the software will be able to apply its helper plugins to try and show how the application may look deconstructed, saving us from having to learn Assembler language from scratch. 
+
+The image below shows how we search for the cortext language settings when importing the binary to Ghidra:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex.JPG)
 
-Before applying the the type of language we then need to tell Ghidra where to look for the starting point of the data that will be imported
-from keeping notes when extracting the firmware you would of noticed the starting address: 0x08000000 this needs to be applied to the settings.
+Before applying the the type of language we need to tell Ghidra where to look for the starting point of the data that will be imported.
+Going back to the notes we kept when extracting the firmware, we notice the starting address is 0x08000000. This needs to be applied to the settings:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex-settings.JPG)
 
-after allowing all the changes and the file has imported you will then be prompted with the following windows asking
-if you would like to perform analysis on the file for now click "No" as more changes need to be made before procceding.
+After allowing all the changes and importing the file we will then be prompted with the question of whether we would like to perform analysis on the file for now. We click "No" as more changes need to be made before procceding:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/CheckResults-No.JPG)
 
-as privoulsly mentioned we need to perform some more changes the start of the changes will be by
-navigating to the Memory manp Tool included withing 
+As previously mentioned, we need to perform some more changes before we can proceed with performing analysis on the file. 
+We start those changes by navigating to the Memory manp Tool included within:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findMemMap.JPG)
 
-The proceed to created aa new memory allocation point by clicking the green cross button on the right hand 
-side and by looking at the memory allocation map inside the documentation for the memory to extract its self into.
+Then we proceed to create a new memory allocation point by clicking the green cross button on the right hand 
+side, and by looking at the memory allocation map in the documentation for the memory to extract itself into.
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/flash_clone.JPG)
 
-Finally for memory allocation by again using the resources from the documentation for the processor it was
-found by setting the ram we could allocate instructions into virtul memory for later analysis. 
+Finally, for memory allocation we again use the resources from the documentation for the processor. 
+It was found that by setting the RAM we could allocate instructions into virtul memory for later analysis: 
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/ram.JPG)
 
-Now all the memory allocaation sections have been created it is then possible to use the built in analysis tools
-by navingating and manully triggering.
+Now that all the memory allocation sections have been created it is possible to use the built in analysis tools
+by navingating to, and manully triggering them:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/analysis.JPG)
 
-When the analysis button has been pressed it will be noticed that the application has prompted for settings 
-to be selected and for now just select the all button and monitor the bottom right hand status bar. when the status
-has then stopped showing instructions it should be completed.
+When the analysis button has been pressed the application will prompt us for the settings 
+to be selected. For now just select the All button and monitor the bottom right hand status bar. When the status
+has then stopped showing instructions the process will have completed:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/options.JPG)
 
- A really good video on doing exactly this can be found here https://www.youtube.com/watch?v=q4CxE5P6RUE
+ A really good video on doing exactly this can be found [here](https://www.youtube.com/watch?v=q4CxE5P6RUE)
  
-When everything has completed it is then possible to search the binary using
-the global search function using the same names that were found when using the strings application.
+When everything has completed it will then be possible to search the binary using
+the global search function, using the same names we found when using the strings application:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Search.JPG)
 
-When the search has begun a new window will popup and start populating results. If you click on
-the first result when everything has finished you should notice the instruction pointers shown
-in the bewlow screeshot. 
+When the search begins a new window will popup and start populating results. If we click on
+the first result, when everything has finished, we will notice the instruction pointers shown
+in the screeshot below: 
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/gotoCode.JPG)
 
-By double clicking on the first of the green sector to the right of the instruction 
-pointers you will notice it will then take you to a new point in memenory. By scrolling
-throught the code on the right hand side its possible to see the three levels of user access
-and them being controlled by numbers. 
+By double clicking on the first of the green sectors to the right of the instruction 
+pointers we will be taken to a new point in memory. Then, by scrolling
+through the code on the right-hand side we will be able to see the three levels of user access correspond to numbers: 
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/instructionpointer.JPG)
 
-Its possible to see in the below screen shot the 3 levels of user access we were searching
-for in the strings application at the beggining of the process.
+We can see in the screenshot below the 3 levels of user access we were searching
+for in the strings application at the beggining of the process, and which are:
 
 * agent setup
 * factory setup
