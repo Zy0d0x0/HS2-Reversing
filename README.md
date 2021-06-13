@@ -2,6 +2,10 @@
 
 ![alt text](https://qrznow.com/wp-content/uploads/2020/10/6371a.jpg)
 
+# Credits
+
+* Editing & proof-reading done by M7GCH.
+
 This is still in progress but this is how i took apart the HS2 Firmware and changed the "user setup" to the "Factory setup".
 
 We start by downling the firmware from the HS2 website. This can be done with a linux program such as wget, or you can do it with your web browser:
@@ -189,43 +193,42 @@ for in the strings application at the beggining of the process, and which are:
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Useraccess.JPG)
 
 Once the varibles have been identified it is possible to patch the instruction pointers 
-by right clicking and navigating to patch instruction. Then you will be prompted with a
-warning that it may not work on the current architecture this is fine to accept and 
-continue. 
+by right clicking and navigating to patch instruction. 
+Then we will be prompted with a
+warning saying the process may not work on the current architecture. This is fine, so we accept and 
+continue:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/patchInstructions.JPG)
 
-In the below screenshot you can see when patching the instructions it allows you to edit the assembler language
-and by switching the number `0x2` to `0x3` it makes the code become `var4 == 3` where originally it was only 2.
+In the screenshot below we can see we are allowed to edit the assembler language when patching the instructions, and that by switching the number `0x2` to `0x3` the code become `var4 == 3` where originally it was only 2:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/set02to03.JPG)
 
-When the values have been patched you will then notice we have duplicate vaules of `var4 == 3` this would 
-create confusion within the application and this was found by trial and error if the duplication is 
-not fixed the access will result in still being the lowest level user.
+When the values have been patched we will notice we have duplicate vaules of `var4 == 3`. This would 
+create confusion within the application, and (this was found by trial and error) if the duplication is 
+not fixed the resulting access will still be of the lowest level user:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/duplevalues.JPG)
 
-To fix the duplication is exactly the same as when you changed the first varible. navigate to the
+To fix the duplication we follow exactly the same steps as when we changed the first varible. We navigate to the
 user setup access and then change the `0x3` to `0x2`.
 
-This Should then make the "User setup" as level 2 setup instead of the level 3 and
-make the factory user a level 3 setup where we know the password is "000000".
-Thus the bypass taking place.
+This should then change the "User setup" to level 2 instead of level 3 and
+change the factory user to a level 3 setup, where we know the password is "000000".
+
+And here is the bypass taking place:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/fixdupe.JPG)
 
-Once complete you can then finally export the program from ghidra by navigating to File > `Export Programe`
+Once complete you can finally export the program from ghidra by navigating to File > `Export Program`
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findexport.JPG)
 
-Then you will be prompted to export the file type of Binary and set the export folder to the same folder name that
-what used when extracting the original dfu and called `AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin`
+Then you will be prompted to the file type the code will be exported to, which should be Binary, set the export folder to be the same folder we used when extracting the original dfu and, set the name as `AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin`:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/exportoptions.JPG)
 
-
-Before repacking the DFU file its worth using the tool md5sum it is also possible to see if your changes have taken place.
+Before repacking the DFU file its worth us using the tool `md5sum` to compare the hash of our changed file to the hash of the original file, allowing us to see if our changes have indeed taken place:
 ```
 ubuntu@ubuntu2-VirtualBox:~/reverse$ md5sum AilunceHS2-FW-V1.3.7.dfu.target0.image0.bin
 dfeaf29113a03b1eb9d8fc08291cd90a  AilunceHS2-FW-V1.3.7.dfu.target0.image0.bin
@@ -234,8 +237,7 @@ ubuntu@ubuntu2-VirtualBox:~/reverse$ md5sum AilunceHS2-FW-V1.3.7.dfu.target0.ima
 ubuntu@ubuntu2-VirtualBox:~/reverse$ 
 ```
 
-To repacking the DFU file its as simple as adding the inputfile name that we exported from the the reverse engineering tools
-with patched appeneded to the name and the memory locator point and then the output filename as shown in the bewlow output.
+To repacking the DFU file is as simple as adding the file name that we exported from the the reverse engineering tools as the input, with patched appended to the name, the memory locator point, and the output filename as shown in the output below:
 
 ```
 ubuntu@ubuntu2-VirtualBox:~/reverse$ python3 dfuse_pack.py -b 0x08000000:AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin AilunceHS2-FW-V1.3.7.dfu.target-patched.dfu
@@ -245,7 +247,13 @@ ubuntu@ubuntu2-VirtualBox:~/reverse$ ls
 ubuntu@ubuntu2-VirtualBox:~/reverse$ 
 ```
 
-Then Flash to your radio like normal. Just remeber any changes you make could potentially mess up your radio and i do not take
+Then we flash to our radio like normal. 
+
+Note: When following these instructions, please remember that any changes you make could potentially brick your radio. I do not take
 any responsibility for the actions you perform.
 
-The final result are how the following firmware files are created: https://github.com/Zy0d0x0/HS2-Firmware
+The final result of our work, where we can see the following firmware files have been created: https://github.com/Zy0d0x0/HS2-Firmware
+
+# Credits
+
+* Editing & proof-reading done by M7GCH.
