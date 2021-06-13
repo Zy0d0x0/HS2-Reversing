@@ -33,7 +33,7 @@ ubuntu@ubuntu2-VirtualBox:~/reverse$ ls
 ubuntu@ubuntu2-VirtualBox:~/reverse$ 
 ```
 
-When the firmware has been extracted we can see that the firmware file is further compressed 
+After the firmware has been extracted we can see that the firmware file is further compressed 
 in a DFU extention. 
 
 This can be extracted, in turn, by using the dfuse-pack.py Python application attached
@@ -162,12 +162,12 @@ has then stopped showing instructions the process will have completed:
 
  A really good video on doing exactly this can be found [here](https://www.youtube.com/watch?v=q4CxE5P6RUE)
  
-When everything has completed it will then be possible to search the binary using
+After everything has completed it will then be possible to search the binary using
 the global search function, using the same names we found when using the strings application:
 
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Search.JPG)
 
-When the search begins a new window will popup and start populating results. If we click on
+As soon as the search begins a new window will popup and start populating results. If we click on
 the first result, when everything has finished, we will notice the instruction pointers shown
 in the screeshot below: 
 
@@ -245,7 +245,7 @@ ubuntu@ubuntu2-VirtualBox:~/reverse$
 
 Then we flash to our radio like normal. 
 
-Note: When following these instructions, please remember that any changes you make could potentially brick your radio. I do not take
+Note: As you are following these instructions, please remember that any changes you make could potentially brick your radio. I do not take
 any responsibility for the actions you perform.
 
 The final result of our work, where we can see the following firmware files have been created: https://github.com/Zy0d0x0/HS2-Firmware
