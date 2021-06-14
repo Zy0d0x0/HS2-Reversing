@@ -119,7 +119,7 @@ By removing the cover of the radio it is possible to identify the processor and 
 
 [Processor user manual](https://www.st.com/resource/en/datasheet/dm00071990.pdf)
 
-With the following information it is possible to work out the Language for the chipset is Cortex and architecture is x86. By then selecting the right instruction set the software will be able to apply its helper plugins to try and show how the application may look deconstructed, saving us from having to learn Assembler language from scratch. 
+With the following information it is possible to work out the Language for the chipset is Cortex and size of 32 little endian. By then selecting the right instruction set the software will be able to apply its helper plugins to try and show how the application may look deconstructed, saving us from having to learn Assembler language from scratch. 
 
 The image below shows how we search for the cortext language settings when importing the binary to Ghidra:
 
