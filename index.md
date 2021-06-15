@@ -103,17 +103,13 @@ We select the type and continue by clicking "Next":
 
 We then create a new project name and directory for the working directory:
 
-<img src="img/newproject.JPG" class="inline"/>
-
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/projectname.JPG)
+<img src="img/projectname.JPG" class="inline"/>
 
 Next we need to import the binary file that was previously extracted with the Python script. This can be done
 by going to File > Import file as shown in the following screenshot:
 
 <img src="img/importBinary.JPG" class="inline"/>
 
-
-<img src="img/newproject.JPG" class="inline"/>
 We are then prompted to set the type of language achitecture for the binary file that is being imported:
 
 <img src="img/SelectLang.JPG" class="inline"/>
@@ -128,37 +124,32 @@ With the following information it is possible to work out the Language for the c
 
 The image below shows how we search for the cortext language settings when importing the binary to Ghidra:
 
-<img src="img/newproject.JPG" class="inline"/>
+<img src="img/cortex.JPG" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex.JPG)
 
 Before applying the the type of language we need to tell Ghidra where to look for the starting point of the data that will be imported.
 Going back to the notes we kept when extracting the firmware, we notice the starting address is 0x08000000. This needs to be applied to the settings:
 
-<img src="img/newproject.JPG" class="inline"/>
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex-settings.JPG)
+<img src="img/cortex-settings.JPG" class="inline"/>
 
 After allowing all the changes and importing the file we will then be prompted with the question of whether we would like to perform analysis on the file for now. We click "No" as more changes need to be made before procceding:
 
-<img src="img/newproject.JPG" class="inline"/>
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/CheckResults-No.JPG)
+<img src="img/CheckResults-No.JPG" class="inline"/>
 
 As previously mentioned, we need to perform some more changes before we can proceed with performing analysis on the file. 
 We start those changes by navigating to the Memory manp Tool included within:
 
-<img src="img/newproject.JPG" class="inline"/>
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findMemMap.JPG)
+<img src="img/findMemMap.JPG" class="inline"/>
 
 Then we proceed to create a new memory allocation point by clicking the green cross button on the right hand 
 side, and by looking at the memory allocation map in the documentation for the memory to extract itself into.
 
-<img src="img/newproject.JPG" class="inline"/>
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/flash_clone.JPG)
+<img src="img/flash_clone.JPG" class="inline"/>
 
 Finally, for memory allocation we again use the resources from the documentation for the processor. 
 It was found that by setting the RAM we could allocate instructions into virtul memory for later analysis: 
 
 <img src="img/ram.JPG" class="inline"/>
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/ram.JPG)
 
 Now that all the memory allocation sections have been created it is possible to use the built in analysis tools
 by navingating to, and manully triggering them:
@@ -189,7 +180,8 @@ By double clicking on the first of the green sectors to the right of the instruc
 pointers we will be taken to a new point in memory. Then, by scrolling
 through the code on the right-hand side we will be able to see the three levels of user access correspond to numbers: 
 
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/instructionpointer.JPG)
+<img src="img/instructionpointer.JPG" class="inline"/>
+
 
 We can see in the screenshot below the 3 levels of user access we were searching
 for in the strings application at the beggining of the process, and which are:
@@ -198,7 +190,7 @@ for in the strings application at the beggining of the process, and which are:
 * factory setup
 * user setup
 
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Useraccess.JPG)
+<img src="img/Useraccess.JPG" class="inline"/>
 
 Once the varibles have been identified it is possible to patch the instruction pointers 
 by right clicking and navigating to patch instruction. 
@@ -206,17 +198,17 @@ Then we will be prompted with a
 warning saying the process may not work on the current architecture. This is fine, so we accept and 
 continue:
 
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/patchInstructions.JPG)
+<img src="img/patchInstructions.JPG" class="inline"/>
 
 In the screenshot below we can see we are allowed to edit the assembler language when patching the instructions, and that by switching the number `0x2` to `0x3` the code become `var4 == 3` where originally it was only 2:
 
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/set02to03.JPG)
+<img src="img/set02to03.JPG" class="inline"/>
 
 When the values have been patched we will notice we have duplicate vaules of `var4 == 3`. This would 
 create confusion within the application, and (this was found by trial and error) if the duplication is 
 not fixed the resulting access will still be of the lowest level user:
 
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/duplevalues.JPG)
+<img src="img/duplevalues.JPG" class="inline"/>
 
 To fix the duplication we follow exactly the same steps as when we changed the first varible. We navigate to the
 user setup access and then change the `0x3` to `0x2`.
@@ -226,15 +218,17 @@ change the factory user to a level 3 setup, where we know the password is "00000
 
 And here is the bypass taking place:
 
+<img src="img/fixdupe.JPG" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/fixdupe.JPG)
 
 Once complete you can finally export the program from ghidra by navigating to File > `Export Program`
 
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findexport.JPG)
+<img src="img/findexport.JPG" class="inline"/>
 
 Then you will be prompted to the file type the code will be exported to, which should be Binary, set the export folder to be the same folder we used when extracting the original dfu and, set the name as `AilunceHS2-FW-V1.3.7.dfu.target0.image0-patched.bin`:
 
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/exportoptions.JPG)
+<img src="img/exportoptions.JPG" class="inline"/>
+
 
 Before repacking the DFU file its worth us using the tool `md5sum` to compare the hash of our changed file to the hash of the original file, allowing us to see if our changes have indeed taken place:
 ```
