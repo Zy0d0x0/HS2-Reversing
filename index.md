@@ -219,7 +219,6 @@ change the factory user to a level 3 setup, where we know the password is "00000
 And here is the bypass taking place:
 
 <img src="img/fixdupe.JPG" class="inline"/>
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/fixdupe.JPG)
 
 Once complete you can finally export the program from ghidra by navigating to File > `Export Program`
 
