@@ -99,12 +99,12 @@ as a Non-Shared Project.
 
 We select the type and continue by clicking "Next":
 
-<img src="https://github.com/Zy0d0x0/HS2-Reversing/blob/main/newproject.JPG" alt="hi" class="inline"/>
+<img src="/img/newproject.JPG" alt="hi" class="inline"/>
 
 
 We then create a new project name and directory for the working directory:
-<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/projectname.JPG)
+<img src="img/projectname.JPG" alt="hi" class="inline"/>
+projectname.JPG)
 
 Next we need to import the binary file that was previously extracted with the Python script. This can be done
 by going to File > Import file as shown in the following screenshot:
