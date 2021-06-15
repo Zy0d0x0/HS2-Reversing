@@ -99,6 +99,6 @@ as a Non-Shared Project.
 
 We select the type and continue by clicking "Next":
 
-<img src="/img/newproject.JPG" class="inline"/>
+<img src="img/newproject.JPG" class="inline"/>
 
 
