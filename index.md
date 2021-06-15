@@ -1,6 +1,7 @@
 # HS2 Factory Account Privilege Escalation
 
-![alt text](https://qrznow.com/wp-content/uploads/2020/10/6371a.jpg)
+
+<img src="https://qrznow.com/wp-content/uploads/2020/10/6371a.jpg" alt="hi" class="inline"/>
 
 This is still in progress but this is how i took apart the HS2 Firmware and changed the "user setup" to the "Factory setup".
 
@@ -98,23 +99,24 @@ as a Non-Shared Project.
 
 We select the type and continue by clicking "Next":
 
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/newproject.JPG)
+<img src="https://github.com/Zy0d0x0/HS2-Reversing/blob/main/newproject.JPG" alt="hi" class="inline"/>
+
 
 We then create a new project name and directory for the working directory:
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/projectname.JPG)
 
 Next we need to import the binary file that was previously extracted with the Python script. This can be done
 by going to File > Import file as shown in the following screenshot:
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/importBinary.JPG)
 
 We are then prompted to set the type of language achitecture for the binary file that is being imported:
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/SelectLang.JPG)
 
 By removing the cover of the radio it is possible to identify the processor and the type:
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/chipset.jpg)
 
 [Processor user manual](https://www.st.com/resource/en/datasheet/dm00071990.pdf)
@@ -122,61 +124,61 @@ By removing the cover of the radio it is possible to identify the processor and 
 With the following information it is possible to work out the Language for the chipset is Cortex and size of 32 little endian. By then selecting the right instruction set the software will be able to apply its helper plugins to try and show how the application may look deconstructed, saving us from having to learn Assembler language from scratch. 
 
 The image below shows how we search for the cortext language settings when importing the binary to Ghidra:
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex.JPG)
 
 Before applying the the type of language we need to tell Ghidra where to look for the starting point of the data that will be imported.
 Going back to the notes we kept when extracting the firmware, we notice the starting address is 0x08000000. This needs to be applied to the settings:
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex-settings.JPG)
 
 After allowing all the changes and importing the file we will then be prompted with the question of whether we would like to perform analysis on the file for now. We click "No" as more changes need to be made before procceding:
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/CheckResults-No.JPG)
 
 As previously mentioned, we need to perform some more changes before we can proceed with performing analysis on the file. 
 We start those changes by navigating to the Memory manp Tool included within:
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/findMemMap.JPG)
 
 Then we proceed to create a new memory allocation point by clicking the green cross button on the right hand 
 side, and by looking at the memory allocation map in the documentation for the memory to extract itself into.
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/flash_clone.JPG)
 
 Finally, for memory allocation we again use the resources from the documentation for the processor. 
 It was found that by setting the RAM we could allocate instructions into virtul memory for later analysis: 
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/ram.JPG)
 
 Now that all the memory allocation sections have been created it is possible to use the built in analysis tools
 by navingating to, and manully triggering them:
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/analysis.JPG)
 
 When the analysis button has been pressed the application will prompt us for the settings 
 to be selected. For now just select the All button and monitor the bottom right hand status bar. When the status
 has then stopped showing instructions the process will have completed:
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/options.JPG)
 
  A really good video on doing exactly this can be found [here](https://www.youtube.com/watch?v=q4CxE5P6RUE)
  
 After everything has completed it will then be possible to search the binary using
 the global search function, using the same names we found when using the strings application:
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Search.JPG)
 
 As soon as the search begins a new window will popup and start populating results. If we click on
 the first result, when everything has finished, we will notice the instruction pointers shown
 in the screeshot below: 
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/gotoCode.JPG)
 
 By double clicking on the first of the green sectors to the right of the instruction 
 pointers we will be taken to a new point in memory. Then, by scrolling
 through the code on the right-hand side we will be able to see the three levels of user access correspond to numbers: 
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/instructionpointer.JPG)
 
 We can see in the screenshot below the 3 levels of user access we were searching
@@ -185,7 +187,7 @@ for in the strings application at the beggining of the process, and which are:
 * agent setup
 * factory setup
 * user setup
-
+<img src="images/Emoticons/cool.png" alt="hi" class="inline"/>
 ![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/Useraccess.JPG)
 
 Once the varibles have been identified it is possible to patch the instruction pointers 
