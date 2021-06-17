@@ -69,7 +69,7 @@ ubuntu@ubuntu2-VirtualBox:~/reverse$
 Based on the above output we can see there appear to be different levels of access, 
 This was confirmwed by Ailunce in their blog post below, where they disclose the route one needs to follow to enter the hidden menu screen within the SET menu on the HS2. The same blog post then goes on to further expose the "agent setup" user access. 
 
-Blog post: https://www.ailunce.com/blog/setting-item-of-your-Ailunce-HS2
+[Blog Post](https://www.ailunce.com/blog/setting-item-of-your-Ailunce-HS2)
 
 Exact wording from the blog post:
 
@@ -84,7 +84,7 @@ After confirming the access works I tried to manually brute-force different user
 
 This prompted me to further inspect the binary file. Through expecerice I knew [Ghidra](https://ghidra-sre.org/) would be the perfect tool for the job.
 
-Installing Ghidra can be found here: http://www.ylmzcmlttn.com/2019/03/26/ghidra-installation-on-ubuntu-18-04-16-04-14-04/
+Installing Ghidra can be found [here](http://www.ylmzcmlttn.com/2019/03/26/ghidra-installation-on-ubuntu-18-04-16-04-14-04/)
 
 Once installed we start it:
 
