@@ -252,7 +252,7 @@ Then we flash to our radio like normal.
 Note: As you are following these instructions, please remember that any changes you make could potentially brick your radio. I do not take
 any responsibility for the actions you perform.
 
-The final result of our work, where we can see the following firmware files have been created: https://github.com/Zy0d0x0/HS2-Firmware
+The final result of our work, where we can see the following firmware files have been [created](https://github.com/Zy0d0x0/HS2-Firmware)
 
 # Credits
 
