@@ -125,7 +125,6 @@ With the following information it is possible to work out the Language for the c
 The image below shows how we search for the cortext language settings when importing the binary to Ghidra:
 
 <img src="img/cortex.JPG" class="inline"/>
-![alt text](https://github.com/Zy0d0x0/HS2-Reversing/blob/main/cortex.JPG)
 
 Before applying the the type of language we need to tell Ghidra where to look for the starting point of the data that will be imported.
 Going back to the notes we kept when extracting the firmware, we notice the starting address is 0x08000000. This needs to be applied to the settings:
