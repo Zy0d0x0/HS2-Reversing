@@ -152,9 +152,11 @@ It was found that by setting the RAM we could allocate instructions into virtul 
 
 <img src="img/ram.JPG" class="inline"/>
 
-The memory map should look like the below screenshot when using firmware 1.3.7
+The Memory Map page should look simular to the below screenshot.
 
 <img src="img/memorymap.JPG" class="inline"/>
+
+
 
 Now that all the memory allocation sections have been created it is possible to use the built in analysis tools
 by navingating to, and manully triggering them:
