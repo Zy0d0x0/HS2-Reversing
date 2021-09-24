@@ -129,6 +129,8 @@ The image below shows how we search for the cortext language settings when impor
 Before applying the the type of language we need to tell Ghidra where to look for the starting point of the data that will be imported.
 Going back to the notes we kept when extracting the firmware, we notice the starting address is 0x08000000. This needs to be applied to the settings:
 
+You should also take note of the file length as this will later be used for other settings.  
+
 <img src="img/cortex-settings.JPG" class="inline"/>
 
 After allowing all the changes and importing the file we will then be prompted with the question of whether we would like to perform analysis on the file for now. We click "No" as more changes need to be made before procceding:
@@ -149,6 +151,10 @@ Finally, for memory allocation we again use the resources from the documentation
 It was found that by setting the RAM we could allocate instructions into virtul memory for later analysis: 
 
 <img src="img/ram.JPG" class="inline"/>
+
+The memory map should look like the below screenshot when using firmware 1.3.7
+
+<img src="img/memorymap.JPG" class="inline"/>
 
 Now that all the memory allocation sections have been created it is possible to use the built in analysis tools
 by navingating to, and manully triggering them:
