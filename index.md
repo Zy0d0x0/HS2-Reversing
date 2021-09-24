@@ -152,10 +152,9 @@ It was found that by setting the RAM we could allocate instructions into virtul 
 
 <img src="img/ram.JPG" class="inline"/>
 
-The Memory Map page should look simular to the below screenshot.
+The Memory Map window should now look simular or the same.
 
 <img src="img/memorymap.JPG" class="inline"/>
-
 
 
 Now that all the memory allocation sections have been created it is possible to use the built in analysis tools
